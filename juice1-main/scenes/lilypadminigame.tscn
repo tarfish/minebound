@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://g5q84y6x071k"]
+
+[ext_resource type="Script" path="res://scripts/lilypadminigame.gd" id="1_xxodw"]
+[ext_resource type="Texture2D" uid="uid://icmaq6fwmljb" path="res://Assets/lilypad.png" id="2_tim6l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yl1gf"]
+size = Vector2(78, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sy1td"]
+size = Vector2(77, 26)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("1_xxodw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(47, -9)
+shape = SubResource("RectangleShape2D_yl1gf")
+
+[node name="Ground2" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(47, -32.5)
+scale = Vector2(0.6625, 0.55625)
+texture = ExtResource("2_tim6l")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(46.5, -23)
+shape = SubResource("RectangleShape2D_sy1td")
+
+[connection signal="body_entered" from="Area2D" to="StaticBody2D" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Area2D" to="StaticBody2D" method="_on_area_2d_body_entered"]

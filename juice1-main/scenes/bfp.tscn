@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://csmwt1aolpxl1"]
+
+[ext_resource type="Texture2D" uid="uid://dgvjqywlwoa77" path="res://Assets/floating platform.png" id="1_r6w0y"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_nvqjm"]
+a = Vector2(152, 168)
+b = Vector2(230, 253)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rroai"]
+a = Vector2(-132, 13)
+b = Vector2(26, 13)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_nabo0"]
+a = Vector2(-44, 131)
+b = Vector2(39, 48)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BigFlyingPlatform" type="StaticBody2D" parent="."]
+
+[node name="FloatingPlatform" type="Sprite2D" parent="BigFlyingPlatform"]
+position = Vector2(229.5, 209.75)
+scale = Vector2(2.93056, 3.10938)
+texture = ExtResource("1_r6w0y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BigFlyingPlatform"]
+shape = SubResource("SegmentShape2D_nvqjm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BigFlyingPlatform"]
+position = Vector2(284, 155)
+shape = SubResource("SegmentShape2D_rroai")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BigFlyingPlatform"]
+position = Vector2(273, 123)
+shape = SubResource("SegmentShape2D_nabo0")

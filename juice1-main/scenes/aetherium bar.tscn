@@ -1,0 +1,171 @@
+[gd_scene load_steps=18 format=3 uid="uid://bqehxq5lfqamu"]
+
+[ext_resource type="Texture2D" uid="uid://cw72ks3k2hu52" path="res://Assets/Image20250319083332.png" id="1_36npv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc2cx"]
+atlas = ExtResource("1_36npv")
+region = Rect2(0, 0, 2200, 449)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwxf1"]
+atlas = ExtResource("1_36npv")
+region = Rect2(0, 449, 2200, 449)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl1ne"]
+atlas = ExtResource("1_36npv")
+region = Rect2(0, 898, 2200, 449)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csuw5"]
+atlas = ExtResource("1_36npv")
+region = Rect2(0, 1347, 2200, 449)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxbv4"]
+atlas = ExtResource("1_36npv")
+region = Rect2(0, 1796, 2200, 449)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh576"]
+atlas = ExtResource("1_36npv")
+region = Rect2(0, 2245, 2200, 449)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jss41"]
+atlas = ExtResource("1_36npv")
+region = Rect2(0, 2694, 2200, 449)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syrqp"]
+atlas = ExtResource("1_36npv")
+region = Rect2(0, 3143, 2200, 449)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7a0q"]
+atlas = ExtResource("1_36npv")
+region = Rect2(0, 3592, 2200, 449)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wighx"]
+atlas = ExtResource("1_36npv")
+region = Rect2(0, 4041, 2200, 449)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2535e"]
+atlas = ExtResource("1_36npv")
+region = Rect2(0, 4490, 2200, 449)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rthp"]
+atlas = ExtResource("1_36npv")
+region = Rect2(0, 4939, 2200, 449)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68nfj"]
+atlas = ExtResource("1_36npv")
+region = Rect2(0, 5388, 2200, 449)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhmps"]
+atlas = ExtResource("1_36npv")
+region = Rect2(0, 5837, 2200, 449)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wrvs"]
+atlas = ExtResource("1_36npv")
+region = Rect2(0, 6286, 2200, 449)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yujfg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc2cx")
+}],
+"loop": true,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwxf1")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hl1ne")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csuw5")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxbv4")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jh576")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jss41")
+}],
+"loop": true,
+"name": &"6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syrqp")
+}],
+"loop": true,
+"name": &"7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7a0q")
+}],
+"loop": true,
+"name": &"8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wighx")
+}],
+"loop": true,
+"name": &"9",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2535e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rthp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68nfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhmps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wrvs")
+}],
+"loop": true,
+"name": &"MAX",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_yujfg")
+animation = &"0"
+frame_progress = 0.37826

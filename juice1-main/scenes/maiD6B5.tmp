@@ -1,0 +1,153 @@
+[gd_scene load_steps=21 format=3 uid="uid://cuptbjk2sxjtr"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_drb4f"]
+[ext_resource type="PackedScene" uid="uid://drwl87p4l7plp" path="res://scenes/player.tscn" id="1_ufokb"]
+[ext_resource type="PackedScene" uid="uid://ck1vmblm67ix0" path="res://scenes/hitbox.tscn" id="2_8qo3i"]
+[ext_resource type="Script" path="res://scripts/hurtbox.gd" id="4_i0qqj"]
+[ext_resource type="Script" path="res://scripts/killbrick.gd" id="4_uvg8s"]
+[ext_resource type="Texture2D" uid="uid://ctd4j6si6adji" path="res://Assets/lava.png" id="5_dp5nq"]
+[ext_resource type="Texture2D" uid="uid://brbt8xdjtipdd" path="res://Assets/black rectangle.jpg" id="5_rktni"]
+[ext_resource type="Texture2D" uid="uid://badyuc4npo451" path="res://Assets/16-bit-spike-Sheet.png" id="7_iv4yw"]
+[ext_resource type="PackedScene" uid="uid://ca3moxicpwk5s" path="res://scenes/enemy.tscn" id="7_smf5g"]
+[ext_resource type="Script" path="res://scripts/rising_lava.gd" id="9_u6n40"]
+[ext_resource type="Script" path="res://scripts/lavadetection.gd" id="10_i0db3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h55c6"]
+size = Vector2(931.875, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjv24"]
+size = Vector2(9, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg3wl"]
+atlas = ExtResource("7_iv4yw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1n0o"]
+atlas = ExtResource("7_iv4yw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3p0a"]
+atlas = ExtResource("7_iv4yw")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2xr5"]
+atlas = ExtResource("7_iv4yw")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ud37q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg3wl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1n0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3p0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2xr5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_od8bw"]
+size = Vector2(571.25, 550)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olko8"]
+size = Vector2(208, 229)
+
+[node name="Main" type="Node2D"]
+position = Vector2(485, 319)
+script = ExtResource("1_drb4f")
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_ufokb")]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_8qo3i")]
+position = Vector2(-474, -354)
+
+[node name="killbricks2" type="Area2D" parent="."]
+script = ExtResource("4_uvg8s")
+
+[node name="Sprite2D" type="Sprite2D" parent="killbricks2"]
+position = Vector2(1171, 858.5)
+scale = Vector2(13.375, 14.6081)
+texture = ExtResource("5_dp5nq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killbricks2"]
+position = Vector2(1138, 529)
+shape = SubResource("RectangleShape2D_h55c6")
+
+[node name="normspikers" type="Area2D" parent="."]
+script = ExtResource("4_i0qqj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="normspikers"]
+position = Vector2(110.5, 152)
+shape = SubResource("RectangleShape2D_hjv24")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="normspikers"]
+position = Vector2(111, 145)
+scale = Vector2(1.875, 2.375)
+sprite_frames = SubResource("SpriteFrames_ud37q")
+
+[node name="normspikers2" type="Area2D" parent="."]
+position = Vector2(1583, 6)
+script = ExtResource("4_i0qqj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="normspikers2"]
+position = Vector2(139, 152)
+shape = SubResource("RectangleShape2D_hjv24")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="normspikers2"]
+position = Vector2(351, 146)
+scale = Vector2(1.875, 2.375)
+sprite_frames = SubResource("SpriteFrames_ud37q")
+
+[node name="normspikers3" type="Area2D" parent="."]
+position = Vector2(1824, 8)
+script = ExtResource("4_i0qqj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="normspikers3"]
+position = Vector2(110.5, 152)
+shape = SubResource("RectangleShape2D_hjv24")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="normspikers3"]
+position = Vector2(-102, 144)
+scale = Vector2(1.875, 2.375)
+sprite_frames = SubResource("SpriteFrames_ud37q")
+
+[node name="Enemy" parent="." instance=ExtResource("7_smf5g")]
+position = Vector2(415, 151)
+
+[node name="Enemy2" parent="." instance=ExtResource("7_smf5g")]
+position = Vector2(2137, 151)
+
+[node name="rising lava" type="Area2D" parent="."]
+script = ExtResource("9_u6n40")
+
+[node name="Sprite2D" type="Sprite2D" parent="rising lava"]
+position = Vector2(3073, 527.5)
+scale = Vector2(0.4775, 0.871429)
+texture = ExtResource("5_rktni")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rising lava"]
+position = Vector2(3072.38, 526)
+shape = SubResource("RectangleShape2D_od8bw")
+
+[node name="lavadetection" type="Area2D" parent="."]
+position = Vector2(2954, -40)
+script = ExtResource("10_i0db3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lavadetection"]
+position = Vector2(-268, 101)
+shape = SubResource("RectangleShape2D_olko8")
+
+[connection signal="body_entered" from="killbricks2" to="killbricks2" method="_on_body_entered"]
+[connection signal="body_entered" from="normspikers" to="normspikers" method="_on_body_entered"]
+[connection signal="body_entered" from="normspikers2" to="normspikers2" method="_on_body_entered"]
+[connection signal="body_entered" from="normspikers3" to="normspikers3" method="_on_body_entered"]
+[connection signal="body_entered" from="rising lava" to="rising lava" method="_on_Lava_body_entered"]
+[connection signal="body_entered" from="lavadetection" to="lavadetection" method="_on_body_entered"]
